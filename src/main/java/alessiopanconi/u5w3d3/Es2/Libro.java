@@ -26,8 +26,7 @@ public class Libro implements CompositeInterface{
     @Override
     public int getNumPagine() {
         int totale = 0;
-        for (int i = 0; i < children.size(); i++) {
-            CompositeInterface c = children.get(i);
+        for (CompositeInterface c : children) {
             totale += c.getNumPagine();
         }
         return totale;
@@ -35,8 +34,7 @@ public class Libro implements CompositeInterface{
 
     public void stampa() {
         System.out.println("Il libro si intitola :" + titolo + " e costa :" + prezzo +"$");
-        for (int i = 0; i < children.size(); i++) {
-            CompositeInterface c = children.get(i);
+        for (CompositeInterface c : children) {
             c.stampa();
         }
     }

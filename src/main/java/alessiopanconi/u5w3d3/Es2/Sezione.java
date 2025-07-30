@@ -18,19 +18,17 @@ public class Sezione implements CompositeInterface{
 
     public void stampa() {
         System.out.println("La sezione intitolata: " + titolo + "è composta da :");
-        for (int i = 0; i < children.size(); i++) {
-            CompositeInterface c = children.get(i);
+        for (CompositeInterface c : children) {
             c.stampa();
         }
     }
 
     @Override
     public int getNumPagine() {
-            int totale = 0;
-            for (int i = 0; i < children.size(); i++) {
-                CompositeInterface c = children.get(i);
-                totale += c.getNumPagine();
-            }
-            return totale;
+        int totale = 0;
+        for (CompositeInterface c : children) {
+            totale += c.getNumPagine();
+        }
+        return totale;
     }
 }
