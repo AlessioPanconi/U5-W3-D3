@@ -3,11 +3,11 @@ package alessiopanconi.u5w3d3.Es2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Libro implements CompositeInterface{
+public class Libro {
 
     private String titolo;
     private double prezzo;
-    private List<String> autori = new ArrayList<>();
+    private List<String> autori;
     private List<CompositeInterface> children = new ArrayList<>();
 
     public Libro(String titolo, double prezzo, List<String> autori) {
@@ -20,7 +20,7 @@ public class Libro implements CompositeInterface{
         children.add(child);
     }
 
-    @Override
+
     public int getNumPagine() {
         int totale = 0;
         for (CompositeInterface c : children) {
