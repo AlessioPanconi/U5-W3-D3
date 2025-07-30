@@ -10,13 +10,10 @@ public class Libro implements CompositeInterface{
     private List<String> autori = new ArrayList<>();
     private List<CompositeInterface> children = new ArrayList<>();
 
-    public Libro(String titolo, double prezzo) {
+    public Libro(String titolo, double prezzo, List<String> autori) {
         this.titolo = titolo;
         this.prezzo = prezzo;
-    }
-
-    public void aggiungiAutore(String autore) {
-        autori.add(autore);
+        this.autori = autori;
     }
 
     public void aggiungiFiglioLibro(CompositeInterface child) {

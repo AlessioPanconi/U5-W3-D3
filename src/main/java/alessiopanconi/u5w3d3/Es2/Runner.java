@@ -3,6 +3,9 @@ package alessiopanconi.u5w3d3.Es2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class Runner implements CommandLineRunner {
     @Override
@@ -27,9 +30,12 @@ public class Runner implements CommandLineRunner {
         sezione2.aggiungiFiglioSezione(newPage6);
         sezione2.aggiungiFiglioSezione(newPage7);
 
-        Libro superLibro = new Libro("Super Book", 99.99);
-        superLibro.aggiungiAutore("MC-Roland");
-        superLibro.aggiungiAutore("CR7");
+        List<String> listaAutori1 = new ArrayList<>();
+        String autore1 = "MC-Roland";
+        String autore2= "CR7";
+        listaAutori1.add(autore1);
+        listaAutori1.add(autore2)
+        Libro superLibro = new Libro("Super Book", 99.99,listaAutori1);
 
         superLibro.aggiungiFiglioLibro(sezione1);
         superLibro.aggiungiFiglioLibro(sezione2);
