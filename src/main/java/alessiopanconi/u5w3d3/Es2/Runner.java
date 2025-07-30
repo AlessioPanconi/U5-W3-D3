@@ -34,7 +34,7 @@ public class Runner implements CommandLineRunner {
         String autore1 = "MC-Roland";
         String autore2= "CR7";
         listaAutori1.add(autore1);
-        listaAutori1.add(autore2)
+        listaAutori1.add(autore2);
         Libro superLibro = new Libro("Super Book", 99.99,listaAutori1);
 
         superLibro.aggiungiFiglioLibro(sezione1);

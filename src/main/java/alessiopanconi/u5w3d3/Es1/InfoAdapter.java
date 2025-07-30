@@ -1,6 +1,8 @@
 package alessiopanconi.u5w3d3.Es1;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class InfoAdapter implements DataSource {
@@ -17,15 +19,11 @@ public class InfoAdapter implements DataSource {
     @Override
     public int getEta() {
         Date dataNascita = info.getDataDiNascita();
-        Calendar dataNascitaCalendar = Calendar.getInstance();
-        dataNascitaCalendar.setTime(dataNascita);
-        Calendar oggi = Calendar.getInstance();
+        LocalDate localDateNascita = dataNascita.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+        LocalDate oggi = LocalDate.now();
 
-        int eta = oggi.get(Calendar.YEAR) - dataNascitaCalendar.get(Calendar.YEAR);
-
-        if (oggi.get(Calendar.DAY_OF_YEAR) < dataNascitaCalendar.get(Calendar.DAY_OF_YEAR)) {
-            eta--;
-        }
-        return eta;
+        return Period.between(localDateNascita, oggi).getYears();
     }
 }
